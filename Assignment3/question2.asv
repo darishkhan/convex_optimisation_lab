@@ -1,0 +1,49 @@
+% Define matrix A
+A = [1 4 5; 4 3 2; 1 0 1];
+rank_A = rank(A);
+
+% Check if A has full rank
+is_full_rank_A = (rank_A == size(A, 2));
+
+% Display results
+fprintf('Matrix A:\n');
+disp(A);
+fprintf('Rank of A: %d\n', rank_A);
+if is_full_rank_A
+    fprintf('Matrix A has full rank.\n');
+else
+    fprintf('Matrix A does not have full rank.\n');
+end
+
+% Find the linearly independent columns
+rref_A = rref(A);
+linearly_independent_cols = find(any(rref_A, 1));
+for i = linearly_independent_cols
+    disp(A(:, i))
+end
+
+% -----------------------------------------------------------
+
+
+% Define matrix B
+B = [1 8 5; 5 0 1; 1 0 90];
+rank_B = rank(B);
+
+% Check if B has full rank
+is_full_rank_B = (rank_B == size(B, 2));
+
+fprintf('Matrix B:\n');
+disp(B);
+fprintf('Rank of B: %d\n', rank_B);
+if is_full_rank_B
+    fprintf('Matrix B has full rank.\n');
+else
+    fprintf('Matrix B does not have full rank.\n');
+end
+
+% Find the linearly independent columns
+rref_B = rref(B);
+linearly_independent_cols = find(any(rref_B, 1));
+for i = linearly_independent_cols
+    disp(A(:, i))
+end
